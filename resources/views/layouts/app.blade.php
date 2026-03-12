@@ -231,7 +231,9 @@
         <div class="container">
             <div class="footer-bottom">
                 <p>© {{ date('Y') }} {{ $siteName }}. All rights reserved.</p>
-                <p class="powered-by">Powered by <span>brndng.</span></p>
+                <a href="https://brndnglb.com" target="_blank">
+                    <p class="powered-by">Powered by <span>brndng.</span></p>
+                </a>
             </div>
         </div>
     </footer>
