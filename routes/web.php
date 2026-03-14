@@ -53,12 +53,14 @@ Route::post('/contact/send',  [ContactController::class, 'send'])->name('contact
 Route::prefix('admin')->name('admin.')->group(function () {
 
     // Auth (no middleware)
+    Route::get('/',         [AdminAuthController::class, 'showLogin']);
     Route::get('/login',         [AdminAuthController::class, 'showLogin'])->name('login');
     Route::post('/login',        [AdminAuthController::class, 'login'])->name('login.post');
     Route::post('/logout',       [AdminAuthController::class, 'logout'])->name('logout');
 
     // Protected admin routes
     Route::middleware('admin.auth')->group(function () {
+        
         Route::get('/dashboard',  [AdminDashboardController::class, 'index'])->name('dashboard');
 
         // Products
