@@ -63,14 +63,14 @@ class DatabaseSeeder extends Seeder
         }
 
         // ─── Categories ──────────────────────────────────────────────
-        $categories = [
-            ['name' => 'New Arrivals', 'image' => 'categories/new-arrivals.jpg',  'description' => 'Fresh pieces just landed'],
-            ['name' => 'Clothing',     'image' => 'categories/clothing.jpg',       'description' => 'Elevated wardrobe essentials'],
-            ['name' => 'Skincare',     'image' => 'categories/skincare.jpg',       'description' => 'Science-backed skin rituals'],
-            ['name' => 'Fragrance',    'image' => 'categories/fragrance.jpg',      'description' => 'Rare and storied scents'],
-            ['name' => 'Accessories',  'image' => 'categories/accessories.jpg',    'description' => 'The finishing touches'],
-            ['name' => 'Home & Life',  'image' => 'categories/home.jpg',           'description' => 'Objects that enrich daily life'],
-        ];
+$categories = [
+    ['name' => 'T-Shirts', 'image' => 'categories/tshirts.jpg', 'description' => 'Clean branded everyday tees'],
+    ['name' => 'Hoodies',  'image' => 'categories/hoodies.jpg', 'description' => 'Premium heavyweight logo hoodies'],
+    ['name' => 'Caps',     'image' => 'categories/caps.jpg',    'description' => 'Minimal embroidered branded caps'],
+    ['name' => 'Mugs',     'image' => 'categories/mugs.jpg',    'description' => 'Desk-ready ceramic logo mugs'],
+    ['name' => 'Jackets',  'image' => 'categories/jackets.jpg', 'description' => 'Sharp outerwear with subtle identity'],
+    ['name' => 'Featured', 'image' => 'categories/featured.jpg','description' => 'Signature brndng. essentials'],
+];
 
         $categoryModels = [];
         foreach ($categories as $i => $cat) {
@@ -84,122 +84,145 @@ class DatabaseSeeder extends Seeder
         }
 
         // ─── Products ────────────────────────────────────────────────
-        $products = [
-            // Clothing
-            [
-                'category' => 'Clothing',
-                'name'  => 'Linen Oversized Blazer',
-                'price' => 189.00,
-                'sale_price' => null,
-                'is_featured' => true, 'is_new' => true,
-                'short_description' => 'Relaxed silhouette in premium Belgian linen.',
-                'variants' => ['sizes' => ['XS','S','M','L','XL'], 'colors' => ['Ecru','Sage','Charcoal']],
-            ],
-            [
-                'category' => 'Clothing',
-                'name'  => 'Silk Slip Dress',
-                'price' => 245.00,
-                'sale_price' => 175.00,
-                'is_featured' => true, 'is_on_sale' => true,
-                'short_description' => '100% mulberry silk in a bias-cut drape.',
-                'variants' => ['sizes' => ['XS','S','M','L'], 'colors' => ['Champagne','Ivory','Midnight']],
-            ],
-            [
-                'category' => 'Clothing',
-                'name'  => 'Wide-Leg Trousers',
-                'price' => 155.00,
-                'sale_price' => null,
-                'is_new' => true,
-                'short_description' => 'Tailored wide-leg cut in Italian wool-blend.',
-                'variants' => ['sizes' => ['XS','S','M','L','XL']],
-            ],
-            // Skincare
-            [
-                'category' => 'Skincare',
-                'name'  => 'Renewal Face Oil',
-                'price' => 95.00,
-                'sale_price' => null,
-                'is_featured' => true,
-                'short_description' => 'Rosehip & bakuchiol blend for luminous skin.',
-                'variants' => ['size' => ['30ml', '50ml']],
-            ],
-            [
-                'category' => 'Skincare',
-                'name'  => 'Gentle Exfoliating Serum',
-                'price' => 78.00,
-                'sale_price' => 58.00,
-                'is_on_sale' => true,
-                'short_description' => 'AHA/PHA formula for radiant, smooth texture.',
-                'variants' => ['size' => ['30ml']],
-            ],
-            [
-                'category' => 'Skincare',
-                'name'  => 'Barrier Repair Cream',
-                'price' => 68.00,
-                'sale_price' => null,
-                'is_new' => true,
-                'short_description' => 'Ceramide-rich overnight recovery balm.',
-                'variants' => ['size' => ['50ml', '100ml']],
-            ],
-            // Fragrance
-            [
-                'category' => 'Fragrance',
-                'name'  => 'Oud & Sandalwood EDP',
-                'price' => 185.00,
-                'sale_price' => null,
-                'is_featured' => true,
-                'short_description' => 'An intoxicating blend of aged oud and creamy sandalwood.',
-                'variants' => ['size' => ['50ml', '100ml']],
-            ],
-            [
-                'category' => 'Fragrance',
-                'name'  => 'White Jasmine Eau de Parfum',
-                'price' => 140.00,
-                'sale_price' => null,
-                'is_new' => true,
-                'short_description' => 'Delicate jasmine on a warm musk base.',
-                'variants' => ['size' => ['30ml', '50ml', '100ml']],
-            ],
-            // Accessories
-            [
-                'category' => 'Accessories',
-                'name'  => 'Leather Card Holder',
-                'price' => 65.00,
-                'sale_price' => null,
-                'is_featured' => true,
-                'short_description' => 'Full-grain leather with 6 card slots.',
-                'variants' => ['color' => ['Tan', 'Black', 'Cognac']],
-            ],
-            [
-                'category' => 'Accessories',
-                'name'  => 'Silk Scarf',
-                'price' => 110.00,
-                'sale_price' => 79.00,
-                'is_on_sale' => true,
-                'short_description' => 'Hand-rolled hem, 90x90cm printed silk twill.',
-                'variants' => ['pattern' => ['Floral', 'Abstract', 'Stripes']],
-            ],
-            // Home & Life
-            [
-                'category' => 'Home & Life',
-                'name'  => 'Soy Candle — Fig & Oakmoss',
-                'price' => 48.00,
-                'sale_price' => null,
-                'is_new' => true,
-                'short_description' => '50-hour burn time in a hand-poured matte vessel.',
-                'variants' => [],
-            ],
-            [
-                'category' => 'Home & Life',
-                'name'  => 'Linen Pillowcase Set',
-                'price' => 85.00,
-                'sale_price' => null,
-                'is_featured' => true,
-                'short_description' => 'Stonewashed French linen, set of 2.',
-                'variants' => ['color' => ['Oat', 'Sage', 'Terracotta']],
-            ],
-        ];
+      // ─── Products ────────────────────────────────────────────────
+$products = [
+    // T-Shirts
+    [
+        'category' => 'T-Shirts',
+        'name'  => 'Heather Grey Logo T-Shirt',
+        'price' => 32.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'is_new' => true,
+        'short_description' => 'Soft heather grey tee with oversized b. front logo.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL', 'XXL'],
+            'colors' => ['Heather Grey'],
+        ],
+    ],
+    [
+        'category' => 'T-Shirts',
+        'name'  => 'Charcoal Chest Logo T-Shirt',
+        'price' => 30.00,
+        'sale_price' => 24.00,
+        'is_featured' => true,
+        'is_on_sale' => true,
+        'short_description' => 'Minimal charcoal tee with subtle left chest b. mark.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL'],
+            'colors' => ['Charcoal'],
+        ],
+    ],
 
+    // Hoodies
+    [
+        'category' => 'Hoodies',
+        'name'  => 'Charcoal Logo Hoodie',
+        'price' => 79.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'is_new' => true,
+        'short_description' => 'Heavyweight charcoal hoodie with bold front b. branding.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL', 'XXL'],
+            'colors' => ['Charcoal'],
+        ],
+    ],
+    [
+        'category' => 'Hoodies',
+        'name'  => 'Heather Grey Logo Hoodie',
+        'price' => 75.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'short_description' => 'Classic heather grey hoodie with oversized front logo.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL'],
+            'colors' => ['Heather Grey'],
+        ],
+    ],
+
+    // Caps
+    [
+        'category' => 'Caps',
+        'name'  => 'Embroidered Logo Cap',
+        'price' => 29.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'is_new' => true,
+        'short_description' => 'Grey structured cap with embroidered b. logo.',
+        'variants' => [
+            'size' => ['One Size'],
+            'color' => ['Grey'],
+        ],
+    ],
+
+    // Mugs
+    [
+        'category' => 'Mugs',
+        'name'  => 'Ceramic Logo Mug',
+        'price' => 18.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'short_description' => 'White ceramic mug featuring the signature b. logo.',
+        'variants' => [
+            'size' => ['11oz'],
+            'color' => ['White'],
+        ],
+    ],
+
+    // Jackets
+    [
+        'category' => 'Jackets',
+        'name'  => 'Charcoal Logo Bomber Jacket',
+        'price' => 110.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'is_new' => true,
+        'short_description' => 'Modern charcoal bomber jacket with front b. branding.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL'],
+            'colors' => ['Charcoal'],
+        ],
+    ],
+
+    // Featured
+    [
+        'category' => 'Featured',
+        'name'  => 'Minimal Logo Hoodie',
+        'price' => 72.00,
+        'sale_price' => null,
+        'is_featured' => true,
+        'short_description' => 'Clean everyday hoodie with understated brndng. identity.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL'],
+            'colors' => ['Ash Grey', 'Charcoal'],
+        ],
+    ],
+    [
+        'category' => 'Featured',
+        'name'  => 'Studio Coffee Mug',
+        'price' => 20.00,
+        'sale_price' => null,
+        'is_new' => true,
+        'short_description' => 'Minimal branded mug designed for studio and desk setups.',
+        'variants' => [
+            'size' => ['11oz', '15oz'],
+            'color' => ['White'],
+        ],
+    ],
+    [
+        'category' => 'Featured',
+        'name'  => 'Essential Logo Tee',
+        'price' => 28.00,
+        'sale_price' => 22.00,
+        'is_on_sale' => true,
+        'short_description' => 'Essential everyday tee with clean brndng. front print.',
+        'variants' => [
+            'sizes' => ['S', 'M', 'L', 'XL'],
+            'colors' => ['Heather Grey', 'Charcoal'],
+        ],
+    ],
+];
         $catMap = $categoryModels ? array_combine(
             array_map(fn($c) => $c->name, $categoryModels),
             $categoryModels
