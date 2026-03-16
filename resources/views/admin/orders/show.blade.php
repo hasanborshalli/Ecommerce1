@@ -15,15 +15,15 @@
     </div>
 </div>
 
-<div style="display:grid; grid-template-columns:1fr 320px; gap:20px; align-items:start;">
+<div class="layout-grid-main-aside">
 
     {{-- Left --}}
-    <div style="display:flex; flex-direction:column; gap:20px;">
+    <div class="stack-20">
 
         {{-- Items --}}
         <div class="card">
             <div class="card-header"><span class="card-title">Order Items</span></div>
-            <div class="table-wrap">
+            <div class="table-wrap table-stack-mobile">
                 <table>
                     <thead>
                         <tr>
@@ -91,7 +91,7 @@
         {{-- Customer & Shipping --}}
         <div class="card">
             <div class="card-header"><span class="card-title">Customer & Shipping</span></div>
-            <div class="card-body" style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+            <div class="card-body layout-grid-2-equal" style="gap:24px;">
                 <div>
                     <p class="aform-label">Customer</p>
                     <p style="font-weight:500;">{{ $order->customer_name }}</p>
@@ -119,7 +119,7 @@
     </div>
 
     {{-- Right: Status Management --}}
-    <div style="display:flex; flex-direction:column; gap:16px;">
+    <div class="stack-16">
         <div class="card">
             <div class="card-header"><span class="card-title">Order Status</span></div>
             <div class="card-body">

@@ -51,7 +51,7 @@
             <span class="card-title">Recent Orders</span>
             <a href="{{ route('admin.orders.index') }}" class="abtn abtn-outline abtn-sm">View All</a>
         </div>
-        <div class="table-wrap">
+        <div class="table-wrap table-stack-mobile">
             <table>
                 <thead>
                     <tr>

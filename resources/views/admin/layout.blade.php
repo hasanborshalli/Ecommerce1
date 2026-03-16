@@ -15,6 +15,16 @@
 </head>
 
 <body>
+    <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu" aria-controls="sidebar"
+        aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+    </button>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="admin-wrap">
 
         {{-- ── Sidebar ──────────────────────────────────────── --}}
@@ -195,6 +205,47 @@
     });
     </script>
     @stack('scripts')
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+        sidebarOverlay.classList.add('show');
+        document.body.classList.add('sidebar-open');
+        mobileNavToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        sidebarOverlay.classList.remove('show');
+        document.body.classList.remove('sidebar-open');
+        mobileNavToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function () {
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            closeSidebar();
+        }
+    });
+    </script>
+</body>
 </body>
 
 </html>

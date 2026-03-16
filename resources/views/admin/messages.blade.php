@@ -12,7 +12,7 @@
 </div>
 
 <div class="card">
-    <div class="table-wrap">
+    <div class="table-wrap table-stack-mobile">
         <table>
             <thead>
                 <tr>
